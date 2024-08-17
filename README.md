@@ -2,7 +2,7 @@
 <br>
 <h1>Description<h1>
    
-<p>Here we will see the execution of the lab program with commands.The commands is given for the ubantu system </p>
+Here we will see the execution of the lab program with commands.The commands is given for the ubantu system.
 
 <h1>Commands</h1>
 
