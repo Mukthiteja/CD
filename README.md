@@ -59,7 +59,7 @@ To install Lex and Yacc (or their equivalents, Flex and Bison) on Ubuntu, follow
    ```bash
    lex 1b.l
    yacc -d 1b.y
-   gcc lex.yy.c y.tab.c -ll
+   cc lex.yy.c y.tab.c -ll
    ./a.out
    ```
    
@@ -92,18 +92,59 @@ To install Lex and Yacc (or their equivalents, Flex and Bison) on Ubuntu, follow
    Navigate to the program directory than
  
    ```bash
-   lex 1b.l
-   yacc -d 1b.y
-   gcc lex.yy.c y.tab.c -ll
+   lex 2b.l
+   yacc -d 2b.y
+   cc lex.yy.c y.tab.c -ll
    ./a.out
    ```
    
    INPUT:
+   Enter an expression:
    ```bash
-   aabb
+   1+23
    ```
    OUTPUT:
-   valid
+   Result is 24
+   Valid
+
+3. **Number 3a**
+   Navigate to the program directory than
+   ```bash
+   lex 2a.l
+   ./a.out
+   ```
+   INPUT:
+   Enter the Number:
+   ```bash
+   111 -5423 0 8.1 -1.34
+   ```
+   OUTPUT:
+   Number of positive integers = 2
+   Number of negative integers = 1
+   Number of positive fractions = 1
+   Number of negative fractions = 1
+
+   
+  **Number 2b**
+   Navigate to the program directory than
+ 
+   ```bash
+   lex 2b.l
+   yacc -d 2b.y
+   cc lex.yy.c y.tab.c -ll
+   ./a.out
+   ```
+   
+   INPUT:
+   Enter an expression:
+   ```bash
+   1+23
+   ```
+   OUTPUT:
+   Result is 24
+   Valid
+
+   
 
    
    
