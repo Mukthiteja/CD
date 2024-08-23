@@ -1,57 +1,48 @@
 %{
-    #include<stdio.h>
-    #include<stdlib.h>
-    int yyerror();
-    int yylex();
+#include <stdio.h>
+#include <stdlib.h>
+// Declare yylex function
+int yylex(void);
+int count = 0;
+void yyerror(const char *s);
 %}
-
-%token TYPE IDEN NUM
-%left '+' '-'
-%left '*' '/'
-
+%token FOR LPAREN RPAREN LF RF EXP NUM
+%token EQ LE GE ADD_ASSIGN SUB_ASSIGN INC DEC
 %%
-// Tokens
-
-// IDEN -> identifier
-// NUM -> number
-// TYPE -> datatype
-
-// Non-terminals
-
-// S -> Start symbol
-// FUN -> function block
-// PARAMS -> parameters
-// PARAM -> parameter
-// BODY -> Function body
-// S1 -> Single Statement
-// SS -> Set of statements
-// T -> Term
-// E -> Expression
-// DECL -> Declaration
-// ASSGN -> Assignment
-
-S: FUN  { printf("Accepted\n"); exit(0); } ;
-FUN: TYPE IDEN '(' PARAMS ')' BODY ;
-BODY: S1';' | '{'SS'}'
-PARAMS: PARAM','PARAMS | PARAM | ;
-PARAM:  TYPE IDEN;
-SS: S1';'SS | ;
-S1: ASSGN | E | DECL ;
-DECL: TYPE IDEN | TYPE ASSGN ;
-ASSGN : IDEN '=' E ;
-E : E '+' E | E '-' E | E '*' E | E '/' E | '-''-'E | '+''+'E | E'+''+' | E'-''-' | T ;
-T : NUM | IDEN ;
+S : I
+;
+I : FOR A B { count++; }
+;
+A : LPAREN E ';' E ';' E RPAREN
+;
+E : EXP Z NUM
+| EXP Z EXP| EXP U
+| 
+;
+Z : '='
+| '>'
+| '<'
+| LE /* Placeholder for '<=' */
+| GE /* Placeholder for '>=' */
+| EQ /* Placeholder for '==' */
+| ADD_ASSIGN /* Placeholder for '+=' */
+| SUB_ASSIGN /* Placeholder for '-=' */
+;
+U : INC /* Placeholder for '++' */
+| DEC /* Placeholder for '--' */
+;
+B : LF B RF
+| I
+| EXP| EXP I
+| /* empty */
+;
 %%
-int main()
-{
-    printf("enter input: ");
-    yyparse();
-    printf("successfull\n");
-    return 0;
+int main() {
+yyparse();
+printf("Number of nested FOR's are: %d\n", count);
+return 0;
 }
-int yyerror()
-{
-    printf("ERROR\n");
-    exit(0);
+void yyerror(const char *s) {
+printf("ERROR: %s\n", s);
+exit(1);
 }
-
