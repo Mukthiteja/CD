@@ -33,3 +33,22 @@ To install Lex and Yacc (or their equivalents, Flex and Bison) on Ubuntu, follow
    flex --version
    bison --version
    ```
+
+<h1>Programs Execution with input and output</h1>
+
+1. **Number 1a**
+   Navigate to the program directory than
+   ```bash
+   lex 1a.l
+   ./a.out
+   ```
+   INPUT:
+   Enter the String:
+   ```bash
+   Ise department in RVCE.
+   ```
+   OUTPUT:
+   No of lines = 1
+    word=4
+    character=19
+    spaces=4    
