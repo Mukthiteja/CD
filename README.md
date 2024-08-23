@@ -136,6 +136,7 @@ To install Lex and Yacc (or their equivalents, Flex and Bison) on Ubuntu, follow
    ```
    OUTPUT:
    Number of nested FOR's are: 1
+   
 4. **Number 4a**
    Navigate to the program directory than
    ```bash
@@ -143,26 +144,27 @@ To install Lex and Yacc (or their equivalents, Flex and Bison) on Ubuntu, follow
    gcc lex.yy.c -ll
    ./a.out
    ```
-   INPUT:
-   v.txt
-   OUTPUT:
-   Number of comment lines = 5
+   INPUT:d.c file
    
-  **Number 3b**
+   OUTPUT:
+No. of identifiers=6
+,keywords=1,operators=0
+   
+  **Number 4b**
    Navigate to the program directory than
  
    ```bash
-   lex 3b.l
-   yacc -d 3b.y
+   lex 4b.l
+   yacc -d 4b.y
    cc lex.yy.c y.tab.c -ll
    ./a.out
    ```
    INPUT:
    ```bash
-   for(int=0;i<n;i++){}
+   if(a<B){if(C==0){}}
    ```
    OUTPUT:
-   Number of nested FOR's are: 
+   Number of nested IF's are: 2 
 
 
    
