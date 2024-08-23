@@ -55,12 +55,14 @@ To install Lex and Yacc (or their equivalents, Flex and Bison) on Ubuntu, follow
 
  **Number 1b**
  Navigate to the program directory than
-    ```bash
+ 
+   ```bash
    lex 1b.l
    yacc -d 1b.y
    gcc lex.yy.c y.tab.c -ll
    ./a.out
    ```
+   
    INPUT:
    ```bash
    aabb
