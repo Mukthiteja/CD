@@ -3,14 +3,19 @@
 %}
 
 %%
-"if"          { return IF; }
-"else"        { return ELSE; }
-"("           { return LPAREN; }
-")"           { return RPAREN; }
-"{"           { return LF; }
-"}"           { return RF; }
-[a-zA-Z_][a-zA-Z0-9_]* { return EXP; } // Match identifiers like a, B, C
-[ \t\n]+      { /* ignore whitespace */ }
-.             { return yytext[0]; }
+
+"if" return IF;
+"(" return '(';
+")" return ')';
+"{" return '{';
+"}" return '}';
+[0-9]+ return NUM;
+[a-zA-Z]+ return EXP; 
+\n return 0;
+. {/*ignore everything else*/};
+
 %%
 
+int yywrap() {
+	return 1;
+}
