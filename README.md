@@ -184,6 +184,33 @@ Navigate to the program directory than
    OUTPUT:
    Total number of variables declared: 7
 
+   **Number 6**
+   Navigate to the program directory than
+   ```bash
+   lex 6.l
+   yacc -d 6.y
+   cc lex.yy.c y.tab.c -ll
+   ./a.out
+   ```
+   INPUT:
+   Enter the Expression (e.g. a = b + c;):
+   ```bash
+   a=b+c;
+   ```
+   OUTPUT:
+   Three-Address Code:
+   T = b + c
+   U = a = T
+
+   Quadruple Code:
+   0	+	b	c	T
+   1	=	a	T	U
+
+   Triple Code:
+   0	+	b	c
+   1	=	a	T
+
+
 
 
    
