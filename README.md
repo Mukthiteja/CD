@@ -1,7 +1,3 @@
-Here is a proper **README** file that describes the execution of the Compiler Design Lab Programs, including installation steps, commands for running the programs, and expected inputs and outputs.
-
----
-
 # Compiler Design Lab Programs
 
 ## Description
