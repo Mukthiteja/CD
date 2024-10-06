@@ -1,37 +1,32 @@
 %{
-#include <stdio.h>
-#include <stdlib.h>
-int yylex();
-void yyerror(const char* s);
-int cnt = 0;
+#include<stdio.h>
+#include<stdlib.h>
+int count=0;
 %}
 
-%token IF NUM EXP
-
+%token IF ELSE LPAREN RPAREN LF RF EXP SPACE
 %%
 
-S: I;
-
-I: IF A B {cnt++;};
-
-A: '(' EXP ')'
- | '(' NUM ')'
- ;
- 
-B: '{' B '}'
- | I
- | /*empty*/
- ;
-
+S:I
+;
+I:IF E B {count++;}
+;
+E:LPAREN EXP RPAREN
+;
+B:LF B RF
+|I
+|EXP
+|EXP SPACE I
+|
+;
 %%
-
-void yyerror(const char* s) {
-	fprintf(stderr, "Invalid!\n");
-	exit(1);
+int main()
+{
+yyparse();
+printf("no. of nested IF's are: %d\n",count);
 }
-
-int main() {
-	yyparse();
-	printf("No.of nested IF's are: %d\n", cnt);
-	return 1;
+int yyerror()
+{
+printf("ERROR!!!\n");
+exit(0);
 }
