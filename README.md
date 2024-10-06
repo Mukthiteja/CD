@@ -199,16 +199,35 @@ Navigate to the program directory than
    ```
    OUTPUT:
    Three-Address Code:
-   T = b + c
+   T = b + c\n
    U = a = T
 
    Quadruple Code:
-   0	+	b	c	T
+   0	+	b	c	T\n
    1	=	a	T	U
 
    Triple Code:
-   0	+	b	c
+   0	+	b	c\n
    1	=	a	T
+
+   **Number 7**
+   Navigate to the program directory than
+   ```bash
+   lex 7.l
+   yacc -d 7.y
+   cc lex.yy.c y.tab.c -ll
+   ./a.out
+   ```
+   INPUT:
+   Enter input:
+   ```bash
+   int main(int a,int b){int x; 
+   x=a+b;}
+   ```
+   OUTPUT:
+   Accepted
+
+   
 
 
 
