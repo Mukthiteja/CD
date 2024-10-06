@@ -166,6 +166,25 @@ No. of identifiers=6
    OUTPUT:
    Number of nested IF's are: 2 
 
+**Number 5**
+Navigate to the program directory than
+   ```bash
+   lex 5.l
+   yacc -d 5.y
+   cc lex.yy.c y.tab.c -ll
+   ./a.out
+   ```
+   INPUT:
+   ```bash
+   int a[10], b, c;
+   float x, y;
+   char name[50];
+   double z;
+   ```
+   OUTPUT:
+   Total number of variables declared: 7
+
+
 
    
 
